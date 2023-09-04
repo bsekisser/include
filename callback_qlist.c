@@ -5,6 +5,7 @@
 #include "err_test.h"
 #include "handle.h"
 #include "log.h"
+#include "unused.h"
 
 /* **** */
 
@@ -54,6 +55,8 @@ static void _callback_qlist_init(callback_qlist_p cbl, unsigned int type)
 	DEBUG(LOG_START("-->> cbl = 0x%08" PRIxPTR, (uintptr_t)cbl));
 	DEBUG(_LOG_(", count = 0x%08x", cbl->count));
 	DEBUG(LOG_END(", type = 0x%08x -- %s", cbl->type, callback_qlist_type[cbl->type]));
+
+	UNUSED(callback_qlist_type); /* squelch warning when not debugging */
 }
 
 static void _register_callback_fifo(callback_qlist_p cbl,
